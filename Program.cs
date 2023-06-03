@@ -17,7 +17,7 @@ int[] GetArray (int length, int min, int max)
 
 void PrintArray(int[] array)
 {
-    Console.Write($"Ваше множество: [{string.Join(", ", array)}]");
+    Console.WriteLine($"Ваше множество: [{string.Join(", ", array)}]");
 }
 
 string EvenNumbers(int[] array)
@@ -31,8 +31,26 @@ string EvenNumbers(int[] array)
     }
     return $"Колличество четных чисел в массиве: {count}.";
 }
+int CountNumbers(int[] array)
+{
+    int count = 0;
+    foreach( int i in array)
+    {
+        if ( i >= 10 && i <= 99 ) count++;
+    }
+    return count;
+}
 // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 // [345, 897, 568, 234] -> 2
-int[] array = GetArray(InputNumber("Введите длину множества: "), 100, 999);
-PrintArray(array);
-Console.WriteLine(EvenNumbers(array));
+// int[] array34 = GetArray(InputNumber("Введите длину множества: "), 100, 999);
+// PrintArray(array34);
+// Console.WriteLine(EvenNumbers(array34));
+
+// Задача 35: Задайте одномерный массив из 123 случайных чисел. Найдите количество элементов массива, значения которых лежат в отрезке [10,99].
+// Пример для массива из 5, а не 123 элементов. В своём решении сделайте для 123
+// [5, 18, 123, 6, 2] -> 1
+// [1, 2, 3, 6, 2] -> 0
+// [10, 11, 12, 13, 14] -> 5
+int[] array35 = GetArray(123, 0, 123);
+PrintArray(array35);
+Console.WriteLine($"Количество элементов массива в отрезке [10, 99]: {CountNumbers(array35)}");
