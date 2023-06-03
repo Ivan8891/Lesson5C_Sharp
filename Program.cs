@@ -4,6 +4,7 @@
     int number = Convert.ToInt32(Console.ReadLine());
     return number;
 }
+
 int[] GetArray (int length, int min, int max)
 {
     int[] array = new int[length];
@@ -13,8 +14,25 @@ int[] GetArray (int length, int min, int max)
     }
     return array;
 }
+
 void PrintArray(int[] array)
 {
     Console.Write($"Ваше множество: [{string.Join(", ", array)}]");
 }
-PrintArray(GetArray(InputNumber("Введите длину множества: "), InputNumber("Введите минимальное значение множества: "), InputNumber("Введите максимальное значение множества")));
+
+string EvenNumbers(int[] array)
+{
+    int res = 0;
+    int count = 0;
+    foreach(int i in array)
+    {
+        res = i % 2;
+        if( res == 0 ) count ++;
+    }
+    return $"Колличество четных чисел в массиве: {count}.";
+}
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+// [345, 897, 568, 234] -> 2
+int[] array = GetArray(InputNumber("Введите длину множества: "), 100, 999);
+PrintArray(array);
+Console.WriteLine(EvenNumbers(array));
